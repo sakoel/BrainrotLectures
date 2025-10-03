@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brainrot Lecture Reels</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="preconnect"
+      href="https://fonts.googleapis.com"
+      crossorigin
+    />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Brainrot Lecture Reels</h1>
+      <p class="tagline">
+        Paste your serious notes, get unserious short-form chaos you can scroll,
+        react to, and roast.
+      </p>
+    </header>
+
+    <main>
+      <section class="input-panel" aria-labelledby="notes-label">
+        <div class="panel-header">
+          <h2 id="notes-label">1. Drop the knowledge dump</h2>
+          <p class="panel-subtitle">
+            Copy + paste lecture notes, bullet points, or whatever you scribbled
+            at 3am.
+          </p>
+        </div>
+        <textarea
+          id="notes-input"
+          placeholder="Week 7: mitochondria = powerhouse, exam Friday, remember to breathe..."
+        ></textarea>
+        <button id="generate-button" type="button">
+          Generate Brainrot Reels 🧠🎬
+        </button>
+        <p id="helper-text" role="status" aria-live="polite"></p>
+      </section>
+
+      <section class="reels-section" aria-live="polite">
+        <div class="panel-header">
+          <h2>2. Scroll the chaos</h2>
+          <p class="panel-subtitle">
+            Each reel chews your notes and spits them back as snack-sized drama.
+          </p>
+        </div>
+        <div id="reel-feed" class="reel-feed" tabindex="0" aria-label="Brainrot reel feed"></div>
+      </section>
+    </main>
+
+    <template id="reel-template">
+      <article class="reel-card">
+        <div class="video-frame">
+          <div class="video-overlay">
+            <p class="video-hook"></p>
+            <p class="video-snippet"></p>
+          </div>
+          <button class="play-toggle" type="button" aria-pressed="false">
+            ▶ Play vibe
+          </button>
+        </div>
+        <div class="reel-meta">
+          <h3 class="reel-title"></h3>
+          <p class="reel-question"></p>
+        </div>
+        <div class="reactions" role="group" aria-label="reel reactions">
+          <button class="reaction-button" type="button" data-reaction="lol">
+            😂 lol <span aria-hidden="true">0</span>
+          </button>
+          <button class="reaction-button" type="button" data-reaction="mindblown">
+            🤯 huh?? <span aria-hidden="true">0</span>
+          </button>
+          <button class="reaction-button" type="button" data-reaction="relatable">
+            🙌 relatable <span aria-hidden="true">0</span>
+          </button>
+        </div>
+        <form class="reply-form">
+          <label>
+            Reply to the reel:
+            <textarea
+              class="reply-input"
+              rows="2"
+              placeholder="Type something iconic or actually helpful..."
+            ></textarea>
+          </label>
+          <button type="submit">Send</button>
+        </form>
+        <ul class="reply-list" aria-label="Reel replies"></ul>
+      </article>
+    </template>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
